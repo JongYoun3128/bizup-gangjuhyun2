@@ -52,13 +52,13 @@ body {
 .card-back {
     display: flex;
     background: url(./images/2.png);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .card-back-left {
     width: 65%;
 
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 30px 25px;
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@ body {
 
 .position {
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     margin-top: 5px;
 }
 
@@ -142,7 +142,7 @@ body {
 
 .tagline {
     font-size: 10px;
-    color: #000000;
+    color: #ffffff;
     letter-spacing: 2px;
     text-align: center;
 }

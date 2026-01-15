@@ -197,7 +197,9 @@ body {
     max-width: 450px;
     overflow: hidden;
 }
-
+.content img {
+    width: 100%;
+}
 .share-modal-header {
     display: flex;
     justify-content: space-between;

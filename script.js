@@ -7,7 +7,7 @@ N:강;주현;;;
 ORG:ZEROKING
 TITLE:총괄디렉터
 TEL;TYPE=CELL:010-9806-3433
-EMAIL:officecine01@gmail.com
+EMAIL:matching25.kor@gmail.com
 ADR;TYPE=WORK:;;벚꽃로 286 삼성리더스타워 1101호;가산동;금천구;;서울
 URL:${window.location.href}
 END:VCARD`;
@@ -34,7 +34,7 @@ function shareCard() {
 
 // 모달 닫기
 function closeShareModal() {
-    document.getElementById("shareModal").style.display = "none";
+    document.getElementById("shareModal").style.display = "block";
 }
 
 // 모달 외부 클릭시 닫기
@@ -49,7 +49,7 @@ window.onclick = function (event) {
 function shareKakao() {
     const url = window.location.href;
     const text =
-        "ZEROKING 강주현 총괄디렉터의 명함입니다.\n전화: 010-9806-3433\n이메일: officecine01@gmail.com";
+        "ZEROKING 강주현 총괄디렉터의 명함입니다.\n전화: 010-9806-3433\n이메일: matching25.kor@gmail.com";
 
     // 모바일에서 카카오톡 앱으로 공유
     const kakaoUrl = `https://sharer.kakao.com/talk/friends/picker/link?app_key=YOUR_APP_KEY&validation_action=default&validation_params={"link_url":"${encodeURIComponent(
@@ -97,7 +97,7 @@ function shareEmail() {
 회사: ZEROKING
 총괄디렉터: 강주현
 전화: 010-9806-3433
-이메일: officecine01@gmail.com
+이메일: matching25.kor@gmail.com
 주소: 금천구 가산동 벚꽃로 286 삼성리더스타워 1101호
 
 명함 보기: ${window.location.href}`;
@@ -112,7 +112,7 @@ function shareEmail() {
 
 // 문자 메시지 공유
 function shareSMS() {
-    const text = `ZEROKING 강주현 총괄디렉터의 명함입니다.\n\n전화: 010-9806-3433\n이메일: officecine01@gmail.com\n\n명함 보기: ${window.location.href}`;
+    const text = `ZEROKING 강주현 총괄디렉터의 명함입니다.\n\n전화: 010-9806-3433\n이메일: matching25.kor@gmail.com\n\n명함 보기: ${window.location.href}`;
 
     // iOS와 Android 모두 지원
     const smsUrl = `sms:?body=${encodeURIComponent(text)}`;

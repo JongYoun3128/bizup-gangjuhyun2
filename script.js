@@ -97,6 +97,28 @@ function fallbackKakaoShare(message) {
     closeShareModal();
 }
 
+// 인스타그램 공유
+function shareInstagram() {
+    const url = window.location.href;
+    
+    // 모바일에서 인스타그램 앱으로 이동
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // 인스타그램 앱 열기
+        window.location.href = "instagram://";
+        
+        setTimeout(() => {
+            alert("인스타그램 앱에서 스토리나 게시물을 작성할 때\n명함 링크를 붙여넣어 주세요!\n\n링크가 클립보드에 복사되었습니다.");
+            copyToClipboard(url);
+        }, 500);
+    } else {
+        // PC에서는 링크 복사
+        copyToClipboard(url);
+        alert("명함 링크가 복사되었습니다!\n인스타그램 DM이나 프로필에 붙여넣어 주세요.");
+    }
+    
+    closeShareModal();
+}
+
 // 라인 공유
 function shareLine() {
     const url = window.location.href;
@@ -189,11 +211,13 @@ const translations = {
         tagline: "Business & Consulting",
         save_contact: "연락처 저장",
         kakao: "카카오톡",
+        insta: "인스타그램",
         line: "라인",
         email: "이메일",
         sms: "메시지",
         business_title: "포그몰과 함께하는 다양한 비즈니스",
-        pointground_desc: "포인트그라운드몰<br />브랜드/서비스 정보를 확인하세요",
+        pointground_desc:
+            "포인트그라운드몰<br />브랜드/서비스 정보를 확인하세요",
         pointground_feature1: "✓ 공식 안내",
         pointground_feature2: "✓ 서비스 소개",
         pointground_feature3: "✓ 문의/상담",
@@ -205,29 +229,34 @@ const translations = {
         interior_feature1: "✓ 맞춤형 디자인",
         interior_feature2: "✓ 합리적인 가격",
         interior_feature3: "✓ 원스톱 시공",
-        cafe_desc: "트렌디하고 수익성 높은 카페 브랜드<br />성공적인 창업의 기회를 제공합니다",
+        cafe_desc:
+            "트렌디하고 수익성 높은 카페 브랜드<br />성공적인 창업의 기회를 제공합니다",
         cafe_feature1: "✓ 체계적인 지사운영 시스템",
         cafe_feature2: "✓ 전문 교육 지원",
         cafe_feature3: "✓ 마케팅 지원",
-        zeroking_desc: "누구나 쉽게 운영할 수 있는<br />완전 자동화 무인 스토어 창업",
+        zeroking_desc:
+            "누구나 쉽게 운영할 수 있는<br />완전 자동화 무인 스토어 창업",
         zeroking_feature1: "✓ 가맹비 0원",
         zeroking_feature2: "✓ 100% 무인 운영",
         zeroking_feature3: "✓ 설비 전체 렌탈",
         view_more: "자세히 보기",
-        view_detail: "자세히보기"
+        view_detail: "자세히보기",
     },
     en: {
         position: "Chief Director",
         name: "Kang Ju Hyun",
-        address: "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
+        address:
+            "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
         tagline: "Business & Consulting",
         save_contact: "Save Contact",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "Email",
         sms: "Message",
         business_title: "Various Businesses with PogMall",
-        pointground_desc: "PointGround Mall<br />Check brand/service information",
+        pointground_desc:
+            "PointGround Mall<br />Check brand/service information",
         pointground_feature1: "✓ Official Guide",
         pointground_feature2: "✓ Service Introduction",
         pointground_feature3: "✓ Inquiry/Consultation",
@@ -235,33 +264,39 @@ const translations = {
         rental_feature1: "✓ Diverse Products",
         rental_feature2: "✓ Flexible Contracts",
         rental_feature3: "✓ Convenient Management",
-        interior_desc: "Premium interior solutions<br />for residential and commercial spaces",
+        interior_desc:
+            "Premium interior solutions<br />for residential and commercial spaces",
         interior_feature1: "✓ Custom Design",
         interior_feature2: "✓ Reasonable Price",
         interior_feature3: "✓ One-Stop Construction",
-        cafe_desc: "Trendy and profitable cafe brand<br />Providing successful business opportunities",
+        cafe_desc:
+            "Trendy and profitable cafe brand<br />Providing successful business opportunities",
         cafe_feature1: "✓ Systematic Branch Management",
         cafe_feature2: "✓ Professional Training",
         cafe_feature3: "✓ Marketing Support",
-        zeroking_desc: "Easy-to-operate<br />fully automated unmanned store startup",
+        zeroking_desc:
+            "Easy-to-operate<br />fully automated unmanned store startup",
         zeroking_feature1: "✓ 0 Won Franchise Fee",
         zeroking_feature2: "✓ 100% Unmanned",
         zeroking_feature3: "✓ Full Equipment Rental",
         view_more: "View More",
-        view_detail: "View Details"
+        view_detail: "View Details",
     },
     ja: {
         position: "チーフディレクター",
         name: "カン・ジュヒョン",
-        address: "金川区 加山洞 ボッコッ路 286<br />サムスンリーダーズタワー 1101号",
+        address:
+            "金川区 加山洞 ボッコッ路 286<br />サムスンリーダーズタワー 1101号",
         tagline: "ビジネス＆コンサルティング",
         save_contact: "連絡先を保存",
         kakao: "カカオトーク",
+        insta: "instagram",
         line: "LINE",
         email: "メール",
         sms: "メッセージ",
         business_title: "ポグモールと一緒に多様なビジネス",
-        pointground_desc: "ポイントグラウンドモール<br />ブランド/サービス情報を確認",
+        pointground_desc:
+            "ポイントグラウンドモール<br />ブランド/サービス情報を確認",
         pointground_feature1: "✓ 公式案内",
         pointground_feature2: "✓ サービス紹介",
         pointground_feature3: "✓ お問い合わせ/相談",
@@ -269,11 +304,13 @@ const translations = {
         rental_feature1: "✓ 多様な商品群",
         rental_feature2: "✓ 柔軟な契約",
         rental_feature3: "✓ 便利な管理",
-        interior_desc: "住宅と商業空間のための<br />プレミアムインテリアソリューション",
+        interior_desc:
+            "住宅と商業空間のための<br />プレミアムインテリアソリューション",
         interior_feature1: "✓ カスタムデザイン",
         interior_feature2: "✓ 合理的な価格",
         interior_feature3: "✓ ワンストップ施工",
-        cafe_desc: "トレンディで収益性の高いカフェブランド<br />成功的な創業の機会を提供",
+        cafe_desc:
+            "トレンディで収益性の高いカフェブランド<br />成功的な創業の機会を提供",
         cafe_feature1: "✓ 体系的な支店運営システム",
         cafe_feature2: "✓ 専門教育支援",
         cafe_feature3: "✓ マーケティング支援",
@@ -282,7 +319,7 @@ const translations = {
         zeroking_feature2: "✓ 100%無人運営",
         zeroking_feature3: "✓ 設備全体レンタル",
         view_more: "詳しく見る",
-        view_detail: "詳細を見る"
+        view_detail: "詳細を見る",
     },
     zh: {
         position: "首席总监",
@@ -291,6 +328,7 @@ const translations = {
         tagline: "商务与咨询",
         save_contact: "保存联系方式",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "电子邮件",
         sms: "短信",
@@ -316,32 +354,38 @@ const translations = {
         zeroking_feature2: "✓ 100%无人运营",
         zeroking_feature3: "✓ 全套设备租赁",
         view_more: "查看更多",
-        view_detail: "查看详情"
+        view_detail: "查看详情",
     },
     fr: {
         position: "Directeur en chef",
         name: "Kang Ju Hyun",
-        address: "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
+        address:
+            "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
         tagline: "Affaires et Conseil",
         save_contact: "Enregistrer Contact",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "E-mail",
         sms: "Message",
         business_title: "Diverses entreprises avec PogMall",
-        pointground_desc: "PointGround Mall<br />Vérifier les informations de marque/service",
+        pointground_desc:
+            "PointGround Mall<br />Vérifier les informations de marque/service",
         pointground_feature1: "✓ Guide officiel",
         pointground_feature2: "✓ Présentation du service",
         pointground_feature3: "✓ Demande/Consultation",
-        rental_desc: "Divers services de location<br />pour la vie et les affaires",
+        rental_desc:
+            "Divers services de location<br />pour la vie et les affaires",
         rental_feature1: "✓ Produits diversifiés",
         rental_feature2: "✓ Contrats flexibles",
         rental_feature3: "✓ Gestion pratique",
-        interior_desc: "Solutions d'intérieur premium<br />pour espaces résidentiels et commerciaux",
+        interior_desc:
+            "Solutions d'intérieur premium<br />pour espaces résidentiels et commerciaux",
         interior_feature1: "✓ Design personnalisé",
         interior_feature2: "✓ Prix raisonnable",
         interior_feature3: "✓ Construction tout-en-un",
-        cafe_desc: "Marque de café tendance et rentable<br />Offrant des opportunités d'affaires réussies",
+        cafe_desc:
+            "Marque de café tendance et rentable<br />Offrant des opportunités d'affaires réussies",
         cafe_feature1: "✓ Système de gestion systématique",
         cafe_feature2: "✓ Formation professionnelle",
         cafe_feature3: "✓ Support marketing",
@@ -350,20 +394,23 @@ const translations = {
         zeroking_feature2: "✓ 100% sans personnel",
         zeroking_feature3: "✓ Location complète d'équipement",
         view_more: "Voir plus",
-        view_detail: "Voir les détails"
+        view_detail: "Voir les détails",
     },
     de: {
         position: "Chef-Direktor",
         name: "Kang Ju Hyun",
-        address: "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
+        address:
+            "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
         tagline: "Geschäft & Beratung",
         save_contact: "Kontakt speichern",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "E-Mail",
         sms: "Nachricht",
         business_title: "Verschiedene Geschäfte mit PogMall",
-        pointground_desc: "PointGround Mall<br />Marken-/Serviceinformationen prüfen",
+        pointground_desc:
+            "PointGround Mall<br />Marken-/Serviceinformationen prüfen",
         pointground_feature1: "✓ Offizieller Leitfaden",
         pointground_feature2: "✓ Service-Einführung",
         pointground_feature3: "✓ Anfrage/Beratung",
@@ -371,33 +418,39 @@ const translations = {
         rental_feature1: "✓ Vielfältige Produkte",
         rental_feature2: "✓ Flexible Verträge",
         rental_feature3: "✓ Bequeme Verwaltung",
-        interior_desc: "Premium-Innenraumlösungen<br />für Wohn- und Geschäftsräume",
+        interior_desc:
+            "Premium-Innenraumlösungen<br />für Wohn- und Geschäftsräume",
         interior_feature1: "✓ Individuelles Design",
         interior_feature2: "✓ Angemessener Preis",
         interior_feature3: "✓ Komplettbau",
-        cafe_desc: "Trendige und profitable Café-Marke<br />Bietet erfolgreiche Geschäftsmöglichkeiten",
+        cafe_desc:
+            "Trendige und profitable Café-Marke<br />Bietet erfolgreiche Geschäftsmöglichkeiten",
         cafe_feature1: "✓ Systematisches Filialmanagementsystem",
         cafe_feature2: "✓ Professionelle Schulung",
         cafe_feature3: "✓ Marketing-Unterstützung",
-        zeroking_desc: "Einfach zu betreibendes<br />vollautomatisiertes unbemanntes Geschäft",
+        zeroking_desc:
+            "Einfach zu betreibendes<br />vollautomatisiertes unbemanntes Geschäft",
         zeroking_feature1: "✓ 0€ Franchisegebühr",
         zeroking_feature2: "✓ 100% unbemannt",
         zeroking_feature3: "✓ Komplette Ausrüstungsmiete",
         view_more: "Mehr sehen",
-        view_detail: "Details ansehen"
+        view_detail: "Details ansehen",
     },
     es: {
         position: "Director General",
         name: "Kang Ju Hyun",
-        address: "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
+        address:
+            "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
         tagline: "Negocios y Consultoría",
         save_contact: "Guardar Contacto",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "Correo electrónico",
         sms: "Mensaje",
         business_title: "Diversos negocios con PogMall",
-        pointground_desc: "PointGround Mall<br />Consultar información de marca/servicio",
+        pointground_desc:
+            "PointGround Mall<br />Consultar información de marca/servicio",
         pointground_feature1: "✓ Guía oficial",
         pointground_feature2: "✓ Introducción del servicio",
         pointground_feature3: "✓ Consulta/Asesoramiento",
@@ -405,11 +458,13 @@ const translations = {
         rental_feature1: "✓ Productos diversos",
         rental_feature2: "✓ Contratos flexibles",
         rental_feature3: "✓ Gestión conveniente",
-        interior_desc: "Soluciones de diseño premium<br />para espacios residenciales y comerciales",
+        interior_desc:
+            "Soluciones de diseño premium<br />para espacios residenciales y comerciales",
         interior_feature1: "✓ Diseño personalizado",
         interior_feature2: "✓ Precio razonable",
         interior_feature3: "✓ Construcción integral",
-        cafe_desc: "Marca de café moderna y rentable<br />Ofreciendo oportunidades de negocio exitosas",
+        cafe_desc:
+            "Marca de café moderna y rentable<br />Ofreciendo oportunidades de negocio exitosas",
         cafe_feature1: "✓ Sistema de gestión sistemático",
         cafe_feature2: "✓ Capacitación profesional",
         cafe_feature3: "✓ Soporte de marketing",
@@ -418,20 +473,23 @@ const translations = {
         zeroking_feature2: "✓ 100% sin personal",
         zeroking_feature3: "✓ Alquiler completo de equipos",
         view_more: "Ver más",
-        view_detail: "Ver detalles"
+        view_detail: "Ver detalles",
     },
     it: {
         position: "Direttore Generale",
         name: "Kang Ju Hyun",
-        address: "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
+        address:
+            "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
         tagline: "Business e Consulenza",
         save_contact: "Salva Contatto",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "E-mail",
         sms: "Messaggio",
         business_title: "Varie attività con PogMall",
-        pointground_desc: "PointGround Mall<br />Controlla informazioni su marchio/servizio",
+        pointground_desc:
+            "PointGround Mall<br />Controlla informazioni su marchio/servizio",
         pointground_feature1: "✓ Guida ufficiale",
         pointground_feature2: "✓ Presentazione del servizio",
         pointground_feature3: "✓ Richiesta/Consulenza",
@@ -439,33 +497,39 @@ const translations = {
         rental_feature1: "✓ Prodotti diversi",
         rental_feature2: "✓ Contratti flessibili",
         rental_feature3: "✓ Gestione conveniente",
-        interior_desc: "Soluzioni d'interni premium<br />per spazi residenziali e commerciali",
+        interior_desc:
+            "Soluzioni d'interni premium<br />per spazi residenziali e commerciali",
         interior_feature1: "✓ Design personalizzato",
         interior_feature2: "✓ Prezzo ragionevole",
         interior_feature3: "✓ Costruzione completa",
-        cafe_desc: "Marchio di caffè trendy e redditizio<br />Offre opportunità di business di successo",
+        cafe_desc:
+            "Marchio di caffè trendy e redditizio<br />Offre opportunità di business di successo",
         cafe_feature1: "✓ Sistema di gestione sistematico",
         cafe_feature2: "✓ Formazione professionale",
         cafe_feature3: "✓ Supporto marketing",
-        zeroking_desc: "Negozio automatizzato senza personale<br />facile da gestire",
+        zeroking_desc:
+            "Negozio automatizzato senza personale<br />facile da gestire",
         zeroking_feature1: "✓ 0€ di franchising",
         zeroking_feature2: "✓ 100% senza personale",
         zeroking_feature3: "✓ Noleggio completo attrezzature",
         view_more: "Vedi di più",
-        view_detail: "Vedi dettagli"
+        view_detail: "Vedi dettagli",
     },
     pt: {
         position: "Diretor-Chefe",
         name: "Kang Ju Hyun",
-        address: "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
+        address:
+            "286 Beotkkot-ro, Gasan-dong, Geumcheon-gu<br />Samsung Leaders Tower #1101",
         tagline: "Negócios e Consultoria",
         save_contact: "Salvar Contato",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "E-mail",
         sms: "Mensagem",
         business_title: "Vários negócios com PogMall",
-        pointground_desc: "PointGround Mall<br />Verifique informações de marca/serviço",
+        pointground_desc:
+            "PointGround Mall<br />Verifique informações de marca/serviço",
         pointground_feature1: "✓ Guia oficial",
         pointground_feature2: "✓ Apresentação do serviço",
         pointground_feature3: "✓ Consulta/Assessoria",
@@ -473,33 +537,39 @@ const translations = {
         rental_feature1: "✓ Produtos diversos",
         rental_feature2: "✓ Contratos flexíveis",
         rental_feature3: "✓ Gestão conveniente",
-        interior_desc: "Soluções de design premium<br />para espaços residenciais e comerciais",
+        interior_desc:
+            "Soluções de design premium<br />para espaços residenciais e comerciais",
         interior_feature1: "✓ Design personalizado",
         interior_feature2: "✓ Preço razoável",
         interior_feature3: "✓ Construção completa",
-        cafe_desc: "Marca de café moderna e lucrativa<br />Oferecendo oportunidades de negócio bem-sucedidas",
+        cafe_desc:
+            "Marca de café moderna e lucrativa<br />Oferecendo oportunidades de negócio bem-sucedidas",
         cafe_feature1: "✓ Sistema de gestão sistemático",
         cafe_feature2: "✓ Treinamento profissional",
         cafe_feature3: "✓ Suporte de marketing",
-        zeroking_desc: "Loja automatizada sem funcionários<br />fácil de operar",
+        zeroking_desc:
+            "Loja automatizada sem funcionários<br />fácil de operar",
         zeroking_feature1: "✓ Taxa de franquia 0€",
         zeroking_feature2: "✓ 100% sem funcionários",
         zeroking_feature3: "✓ Aluguel completo de equipamentos",
         view_more: "Ver mais",
-        view_detail: "Ver detalhes"
+        view_detail: "Ver detalhes",
     },
     ru: {
         position: "Главный директор",
         name: "Кан Чжу Хён",
-        address: "286 Бёткот-ро, Гасан-дон, Кымчхон-гу<br />Башня Samsung Leaders #1101",
+        address:
+            "286 Бёткот-ро, Гасан-дон, Кымчхон-гу<br />Башня Samsung Leaders #1101",
         tagline: "Бизнес и Консалтинг",
         save_contact: "Сохранить контакт",
         kakao: "KakaoTalk",
+        insta: "instagram",
         line: "LINE",
         email: "Электронная почта",
         sms: "Сообщение",
         business_title: "Различные предприятия с PogMall",
-        pointground_desc: "PointGround Mall<br />Проверить информацию о бренде/сервисе",
+        pointground_desc:
+            "PointGround Mall<br />Проверить информацию о бренде/сервисе",
         pointground_feature1: "✓ Официальный гид",
         pointground_feature2: "✓ Представление сервиса",
         pointground_feature3: "✓ Запрос/Консультация",
@@ -507,60 +577,65 @@ const translations = {
         rental_feature1: "✓ Разнообразные продукты",
         rental_feature2: "✓ Гибкие контракты",
         rental_feature3: "✓ Удобное управление",
-        interior_desc: "Премиум решения для интерьера<br />жилых и коммерческих помещений",
+        interior_desc:
+            "Премиум решения для интерьера<br />жилых и коммерческих помещений",
         interior_feature1: "✓ Индивидуальный дизайн",
         interior_feature2: "✓ Разумная цена",
         interior_feature3: "✓ Комплексное строительство",
-        cafe_desc: "Модный и прибыльный бренд кафе<br />Предоставление успешных бизнес-возможностей",
+        cafe_desc:
+            "Модный и прибыльный бренд кафе<br />Предоставление успешных бизнес-возможностей",
         cafe_feature1: "✓ Систематическая система управления",
         cafe_feature2: "✓ Профессиональное обучение",
         cafe_feature3: "✓ Поддержка маркетинга",
-        zeroking_desc: "Легкий в управлении<br />полностью автоматизированный магазин",
+        zeroking_desc:
+            "Легкий в управлении<br />полностью автоматизированный магазин",
         zeroking_feature1: "✓ 0₽ франшизы",
         zeroking_feature2: "✓ 100% без персонала",
         zeroking_feature3: "✓ Полная аренда оборудования",
         view_more: "Посмотреть больше",
-        view_detail: "Посмотреть детали"
-    }
+        view_detail: "Посмотреть детали",
+    },
 };
 
 // 현재 언어 설정
-let currentLang = 'ko';
+let currentLang = "ko";
 
 // 언어 변경 함수
 function changeLanguage(lang) {
     currentLang = lang;
-    
+
     // 모든 번역 가능한 요소 찾기
-    const elements = document.querySelectorAll('[data-translate]');
-    
-    elements.forEach(element => {
-        const key = element.getAttribute('data-translate');
+    const elements = document.querySelectorAll("[data-translate]");
+
+    elements.forEach((element) => {
+        const key = element.getAttribute("data-translate");
         if (translations[lang] && translations[lang][key]) {
             element.innerHTML = translations[lang][key];
         }
     });
-    
+
     // 활성 언어 버튼 표시
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.remove("active");
     });
-    document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
-    
+    document
+        .querySelector(`.lang-btn[data-lang="${lang}"]`)
+        .classList.add("active");
+
     // 로컬 스토리지에 저장
-    localStorage.setItem('selectedLanguage', lang);
+    localStorage.setItem("selectedLanguage", lang);
 }
 
 // 페이지 로드 시 실행
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     // 저장된 언어 불러오기
-    const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+    const savedLang = localStorage.getItem("selectedLanguage") || "ko";
     changeLanguage(savedLang);
-    
+
     // 언어 버튼에 이벤트 리스너 추가
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const lang = this.getAttribute("data-lang");
             changeLanguage(lang);
         });
     });

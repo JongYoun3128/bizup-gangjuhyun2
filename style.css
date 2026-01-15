@@ -326,6 +326,18 @@ body {
     margin-top: 20px;
     font-size: 0.9rem;
 }
+.content-text {
+    text-align: center;
+}
+.content-text a {
+    padding: 10px;
+    background-color: #238110;
+    color: white;
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    border-radius: 5px;
+}
 @media (max-width: 480px) {
     .share-options {
         grid-template-columns: repeat(4, 1fr);

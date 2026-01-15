@@ -354,9 +354,6 @@ body {
 
 /* 언어 선택 영역 */
 .language-selector {
-    position: fixed;
-    bottom: 10px;
-    z-index: 99999999;
     width: 100%;
     max-width: 450px;
     display: flex;

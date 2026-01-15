@@ -20,6 +20,10 @@
         <title>전자명함</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="styles2.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+        />
     </head>
     <body>
         <div class="card-container">
@@ -30,8 +34,12 @@
             <div class="card card-back">
                 <div class="card-back-left">
                     <div class="name-section">
-                        <div class="position">Chief Director</div>
-                        <div class="name-ko">강 주 현</div>
+                        <div class="position" data-translate="position">
+                            Chief Director
+                        </div>
+                        <div class="name-ko" data-translate="name">
+                            강 주 현
+                        </div>
                     </div>
                     <div class="info-section">
                         <div class="info-item">
@@ -81,7 +89,7 @@
                                 />
                                 <circle cx="12" cy="12" r="2" fill="white" />
                             </svg>
-                            <span class="info-text"
+                            <span class="info-text" data-translate="address"
                                 >금천구 가산동 벚꽃로 286<br />삼성리더스타워
                                 1101호</span
                             >
@@ -89,7 +97,9 @@
                     </div>
                 </div>
                 <div class="card-back-right">
-                    <div class="tagline">Business & Consulting</div>
+                    <div class="tagline" data-translate="tagline">
+                        Business & Consulting
+                    </div>
                     <div class="logo-small2">
                         <a
                             target="_blank"
@@ -114,7 +124,7 @@
                             stroke-width="2"
                         />
                     </svg>
-                    연락처 저장
+                    <span data-translate="save_contact">연락처 저장</span>
                 </button>
                 <div id="shareModal" class="share-modal">
                     <div class="share-modal-content">
@@ -130,7 +140,7 @@
                                         />
                                     </svg>
                                 </div>
-                                <span>카카오톡</span>
+                                <span data-translate="kakao">카카오톡</span>
                             </button>
                             <button onclick="shareLine()" class="share-option">
                                 <div class="share-icon line-icon">
@@ -143,7 +153,7 @@
                                         />
                                     </svg>
                                 </div>
-                                <span>라인</span>
+                                <span data-translate="line">라인</span>
                             </button>
                             <button onclick="shareEmail()" class="share-option">
                                 <div class="share-icon email-icon">
@@ -156,7 +166,7 @@
                                         />
                                     </svg>
                                 </div>
-                                <span>이메일</span>
+                                <span data-translate="email">이메일</span>
                             </button>
                             <button onclick="shareSMS()" class="share-option">
                                 <div class="share-icon sms-icon">
@@ -169,7 +179,7 @@
                                         />
                                     </svg>
                                 </div>
-                                <span>메시지</span>
+                                <span data-translate="sms">메시지</span>
                             </button>
                         </div>
                     </div>
@@ -178,7 +188,7 @@
 
             <section class="other-business">
                 <div class="container1">
-                    <h2 class="section-title1">
+                    <h2 class="section-title1" data-translate="business_title">
                         포그몰과 함께하는 다양한 비즈니스
                     </h2>
                 </div>
@@ -187,21 +197,31 @@
                         <h3>
                             <img src="images/mall.png" alt="" />
                         </h3>
-                        <p>
+                        <p data-translate="pointground_desc">
                             포인트그라운드몰<br />
                             브랜드/서비스 정보를 확인하세요
                         </p>
                         <div class="business-features">
-                            <span>✓ 공식 안내</span>
-                            <span>✓ 서비스 소개</span>
-                            <span>✓ 문의/상담</span>
+                            <span data-translate="pointground_feature1"
+                                >✓ 공식 안내</span
+                            >
+                            <span data-translate="pointground_feature2"
+                                >✓ 서비스 소개</span
+                            >
+                            <span data-translate="pointground_feature3"
+                                >✓ 문의/상담</span
+                            >
                         </div>
                         <a
                             href="http://pointground.kr/"
                             target="_blank"
                             class="business-link"
                         >
-                            <button class="btn-business" id="pointground-btn">
+                            <button
+                                class="btn-business"
+                                id="pointground-btn"
+                                data-translate="view_more"
+                            >
                                 자세히 보기
                             </button>
                         </a>
@@ -215,61 +235,93 @@
                                 alt=""
                             />
                         </h3>
-                        <p>
+                        <p data-translate="rental_desc">
                             생활과 사업에 필요한<br />
                             다양한 렌탈 서비스
                         </p>
                         <div class="business-features">
-                            <span>✓ 다양한 상품군</span>
-                            <span>✓ 유연한 계약</span>
-                            <span>✓ 편리한 관리</span>
+                            <span data-translate="rental_feature1"
+                                >✓ 다양한 상품군</span
+                            >
+                            <span data-translate="rental_feature2"
+                                >✓ 유연한 계약</span
+                            >
+                            <span data-translate="rental_feature3"
+                                >✓ 편리한 관리</span
+                            >
                         </div>
                         <a
                             href="https://pointground.rental-shop.net/"
                             target="_blank"
                             class="business-link"
                         >
-                            <button class="btn-business">자세히 보기</button>
+                            <button
+                                class="btn-business"
+                                data-translate="view_more"
+                            >
+                                자세히 보기
+                            </button>
                         </a>
                     </div>
                     <div class="business-card interior">
                         <h3>
                             <img src="images/theteamlogo.png" alt="" />
                         </h3>
-                        <p>
+                        <p data-translate="interior_desc">
                             주거와 상업 공간을 위한<br />
                             프리미엄 인테리어 솔루션
                         </p>
                         <div class="business-features">
-                            <span>✓ 맞춤형 디자인</span>
-                            <span>✓ 합리적인 가격</span>
-                            <span>✓ 원스톱 시공</span>
+                            <span data-translate="interior_feature1"
+                                >✓ 맞춤형 디자인</span
+                            >
+                            <span data-translate="interior_feature2"
+                                >✓ 합리적인 가격</span
+                            >
+                            <span data-translate="interior_feature3"
+                                >✓ 원스톱 시공</span
+                            >
                         </div>
                         <a
                             href="http://theteamdesign.co.kr/"
                             target="_blank"
                             class="business-link"
                         >
-                            <button class="btn-business">자세히 보기</button>
+                            <button
+                                class="btn-business"
+                                data-translate="view_more"
+                            >
+                                자세히 보기
+                            </button>
                         </a>
                     </div>
                     <div class="business-card cafe">
                         <h3><img src="images/blueseedlogo.png" alt="" /></h3>
-                        <p>
+                        <p data-translate="cafe_desc">
                             트렌디하고 수익성 높은 카페 브랜드<br />
                             성공적인 창업의 기회를 제공합니다
                         </p>
                         <div class="business-features">
-                            <span>✓ 체계적인 지사운영 시스템</span>
-                            <span>✓ 전문 교육 지원</span>
-                            <span>✓ 마케팅 지원</span>
+                            <span data-translate="cafe_feature1"
+                                >✓ 체계적인 지사운영 시스템</span
+                            >
+                            <span data-translate="cafe_feature2"
+                                >✓ 전문 교육 지원</span
+                            >
+                            <span data-translate="cafe_feature3"
+                                >✓ 마케팅 지원</span
+                            >
                         </div>
                         <a
                             href="https://jongyoun3128.github.io/blueseed/"
                             class="business-link"
                             target="_blank"
                         >
-                            <button class="btn-business" id="cafe-btn">
+                            <button
+                                class="btn-business"
+                                id="cafe-btn"
+                                data-translate="view_more"
+                            >
                                 자세히 보기
                             </button>
                         </a>
@@ -281,21 +333,31 @@
                                 alt="ZERO KING"
                             />
                         </h3>
-                        <p>
+                        <p data-translate="zeroking_desc">
                             누구나 쉽게 운영할 수 있는<br />
                             완전 자동화 무인 스토어 창업
                         </p>
                         <div class="business-features">
-                            <span>✓ 가맹비 0원</span>
-                            <span>✓ 100% 무인 운영</span>
-                            <span>✓ 설비 전체 렌탈</span>
+                            <span data-translate="zeroking_feature1"
+                                >✓ 가맹비 0원</span
+                            >
+                            <span data-translate="zeroking_feature2"
+                                >✓ 100% 무인 운영</span
+                            >
+                            <span data-translate="zeroking_feature3"
+                                >✓ 설비 전체 렌탈</span
+                            >
                         </div>
                         <a
                             href="https://jongyoun3128.github.io/zeroking/"
                             class="business-link"
                             target="_blank"
                         >
-                            <button class="btn-business" id="zeroking-btn">
+                            <button
+                                class="btn-business"
+                                id="zeroking-btn"
+                                data-translate="view_more"
+                            >
                                 자세히 보기
                             </button>
                         </a>
@@ -309,6 +371,7 @@
                     <a
                         target="_blank"
                         href="https://jongyoun3128.github.io/promote/cha.html"
+                        data-translate="view_detail"
                         >자세히보기</a
                     >
                 </div>
@@ -334,6 +397,40 @@
                     명함을 주문할수 있습니다.
                 </p>
             </div> -->
+
+            <!-- 언어 선택 영역 -->
+            <div class="language-selector">
+                <button class="lang-btn" data-lang="ko" title="한국어">
+                    <span class="fi fi-kr"></span>
+                </button>
+                <button class="lang-btn" data-lang="en" title="English">
+                    <span class="fi fi-us"></span>
+                </button>
+                <button class="lang-btn" data-lang="ja" title="日本語">
+                    <span class="fi fi-jp"></span>
+                </button>
+                <button class="lang-btn" data-lang="zh" title="中文">
+                    <span class="fi fi-cn"></span>
+                </button>
+                <button class="lang-btn" data-lang="fr" title="Français">
+                    <span class="fi fi-fr"></span>
+                </button>
+                <button class="lang-btn" data-lang="de" title="Deutsch">
+                    <span class="fi fi-de"></span>
+                </button>
+                <button class="lang-btn" data-lang="es" title="Español">
+                    <span class="fi fi-es"></span>
+                </button>
+                <button class="lang-btn" data-lang="it" title="Italiano">
+                    <span class="fi fi-it"></span>
+                </button>
+                <button class="lang-btn" data-lang="pt" title="Português">
+                    <span class="fi fi-pt"></span>
+                </button>
+                <button class="lang-btn" data-lang="ru" title="Русский">
+                    <span class="fi fi-ru"></span>
+                </button>
+            </div>
         </div>
 
         <!-- 공유 메뉴 모달 -->
